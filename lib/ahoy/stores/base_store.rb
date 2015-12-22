@@ -34,6 +34,10 @@ module Ahoy
         @user ||= (controller.respond_to?(:current_user) && controller.current_user) || (controller.respond_to?(:current_resource_owner, true) && controller.send(:current_resource_owner)) || nil
       end
 
+      def account
+        @account ||= (controller.respond_to?(:current_user) && controller.current_user) || (controller.respond_to?(:current_resource_owner, true) && controller.send(:current_resource_owner)) || nil
+      end
+
       def exclude?
         bot?
       end
